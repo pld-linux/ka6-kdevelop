@@ -8,10 +8,6 @@
 %define		qtver		5.15.2
 %define		kaname		kdevelop
 
-%ifarch x32 i686
-%undefine with_webengine
-%endif
-
 Summary:	KDE Integrated Development Environment
 Summary(de.UTF-8):	KDevelop ist eine grafische Entwicklungsumgebung für KDE
 Summary(pl.UTF-8):	Zintegrowane środowisko programisty dla KDE
@@ -26,7 +22,7 @@ Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kan
 # Source0-md5:	0f1345596a5e63228cb67897f1628770
 URL:		http://www.kdevelop.org/
 BuildRequires:	Qt6Help-devel >= %{qtver}
-%{?with_webengine:BuildRequires:	Qt6WebEngine-devel >= %{qtver}}
+BuildRequires:	Qt6WebEngine-devel >= %{qtver}
 BuildRequires:	astyle-devel >= 3.1
 BuildRequires:	clang-devel
 BuildRequires:	clang-tools-extra
@@ -59,6 +55,7 @@ Requires:	libstdc++-gdb
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	shared-mime-info
 Obsoletes:	ka5-%{kaname} < %{version}
+ExcludeArch:	x32 i686
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_noautoreqfiles .*\\.zshrc
