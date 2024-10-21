@@ -8,7 +8,7 @@
 %define		qtver		5.15.2
 %define		kaname		kdevelop
 
-%ifarch x32
+%ifarch x32 i686
 %undefine with_webengine
 %endif
 
@@ -19,7 +19,7 @@ Summary(pt_BR.UTF-8):	Ambiente Integrado de Desenvolvimento para o KDE
 Summary(zh_CN.UTF-8):	KDE C/C++集成开发环境
 Name:		ka6-kdevelop
 Version:	24.08.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
@@ -39,7 +39,9 @@ BuildRequires:	ka6-kdevelop-pg-qt >= 2.3.0
 BuildRequires:	ka6-libkomparediff2-devel
 BuildRequires:	kf6-kcrash-devel >= %{kframever}
 BuildRequires:	kf6-kdoctools-devel >= %{kframever}
+BuildRequires:	kf6-knotifyconfig-devel >= %{kframever}
 BuildRequires:	kf6-krunner-devel >= %{kframever}
+BuildRequires:	kf6-ktexteditor-devel >= %{kframever}
 BuildRequires:	kf6-syntax-highlighting-devel >= %{kframever}
 BuildRequires:	kf6-threadweaver-devel >= %{kframever}
 BuildRequires:	kp6-libksysguard-devel
