@@ -5,7 +5,7 @@
 
 %define		kdeappsver	24.12.0
 %define		kframever	5.103.0
-%define		qtver		5.15.2
+%define		qtver		6.5.0
 %define		kaname		kdevelop
 
 Summary:	KDE Integrated Development Environment
@@ -21,8 +21,14 @@ Group:		X11/Development/Tools
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
 # Source0-md5:	e3eff889c9c87e362997ba896162e6b9
 URL:		http://www.kdevelop.org/
+BuildRequires:	Qt6Concurrent-devel >= %{qtver}
+BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt6DBus-devel >= %{qtver}
 BuildRequires:	Qt6Help-devel >= %{qtver}
+BuildRequires:	Qt6Qt5Compat-devel >= %{qtver}
+BuildRequires:	Qt6Quick-devel >= %{qtver}
 BuildRequires:	Qt6WebEngine-devel >= %{qtver}
+BuildRequires:	Qt6Widgets-devel >= %{qtver}
 BuildRequires:	astyle-devel >= 3.1
 BuildRequires:	clang-devel
 BuildRequires:	clang-tools-extra
