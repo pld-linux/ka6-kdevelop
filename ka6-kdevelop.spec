@@ -4,7 +4,7 @@
 %bcond_without	webengine	# build without webengine
 
 %define		kdeappsver	24.12.0
-%define		kframever	5.103.0
+%define		kframever	6.0.0
 %define		qtver		6.5.0
 %define		kaname		kdevelop
 
@@ -36,17 +36,37 @@ BuildRequires:	cmake >= 3.20
 BuildRequires:	docbook-dtd45-xml
 BuildRequires:	docbook-style-xsl
 BuildRequires:	gettext-tools
-#BuildRequires:	ka5-okteta-devel >= 1:0.26.9-3
 BuildRequires:	ka6-kdevelop-pg-qt >= 2.3.0
-BuildRequires:	ka6-libkomparediff2-devel
+BuildRequires:	ka6-libkomparediff2-devel >= 6.0
+BuildRequires:	kf6-karchive-devel >= %{kframever}
+BuildRequires:	kf6-kcmutils-devel >= %{kframever}
+BuildRequires:	kf6-kconfig-devel >= %{kframever}
 BuildRequires:	kf6-kcrash-devel >= %{kframever}
 BuildRequires:	kf6-kdoctools-devel >= %{kframever}
+BuildRequires:	kf6-kguiaddons-devel >= %{kframever}
+BuildRequires:	kf6-ki18n-devel >= %{kframever}
+BuildRequires:	kf6-kiconthemes-devel >= %{kframever}
+BuildRequires:	kf6-kio-devel >= %{kframever}
+BuildRequires:	kf6-kitemmodels-devel >= %{kframever}
+BuildRequires:	kf6-kitemviews-devel >= %{kframever}
+BuildRequires:	kf6-kjobwidgets-devel >= %{kframever}
+BuildRequires:	kf6-knewstuff-devel >= %{kframever}
+BuildRequires:	kf6-knotifications-devel >= %{kframever}
 BuildRequires:	kf6-knotifyconfig-devel >= %{kframever}
-BuildRequires:	kf6-krunner-devel >= %{kframever}
+BuildRequires:	kf6-kparts-devel >= %{kframever}
+BuildRequires:	kf6-krunner-devel
+BuildRequires:	kf6-kservice-devel >= %{kframever}
 BuildRequires:	kf6-ktexteditor-devel >= %{kframever}
-BuildRequires:	kf6-syntax-highlighting-devel >= %{kframever}
+BuildRequires:	kf6-ktexttemplate-devel >= %{kframever}
+BuildRequires:	kf6-ktextwidgets-devel >= %{kframever}
+BuildRequires:	kf6-kwindowsystem-devel >= %{kframever}
+BuildRequires:	kf6-kxmlgui-devel >= %{kframever}
+BuildRequires:	kf6-purpose-devel
+BuildRequires:	kf6-sonnet-devel >= %{kframever}
+BuildRequires:	kf6-syntax-highlighting-devel
 BuildRequires:	kf6-threadweaver-devel >= %{kframever}
 BuildRequires:	kp6-libksysguard-devel
+BuildRequires:	kp6-libplasma-devel
 BuildRequires:	llvm-mlir-devel
 BuildRequires:	qt6-assistant >= %{qtver}
 
