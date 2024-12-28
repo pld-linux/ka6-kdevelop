@@ -69,7 +69,6 @@ BuildRequires:	kp6-libksysguard-devel
 BuildRequires:	kp6-libplasma-devel
 BuildRequires:	llvm-mlir-devel
 BuildRequires:	qt6-assistant >= %{qtver}
-
 BuildRequires:	libstdc++-devel >= 3.3
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
@@ -81,7 +80,7 @@ Requires:	libstdc++-gdb
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	shared-mime-info
 Obsoletes:	ka5-%{kaname} < %{version}
-ExcludeArch:	x32 i686
+ExcludeArch:	x32 %{ix86}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_noautoreqfiles .*\\.zshrc
