@@ -3,7 +3,7 @@
 %bcond_with	tests		# build with tests
 %bcond_without	webengine	# build without webengine
 
-%define		kdeappsver	24.12.3
+%define		kdeappsver	25.04.0
 %define		kframever	6.0.0
 %define		qtver		6.5.0
 %define		kaname		kdevelop
@@ -14,12 +14,12 @@ Summary(pl.UTF-8):	Zintegrowane środowisko programisty dla KDE
 Summary(pt_BR.UTF-8):	Ambiente Integrado de Desenvolvimento para o KDE
 Summary(zh_CN.UTF-8):	KDE C/C++集成开发环境
 Name:		ka6-kdevelop
-Version:	24.12.3
+Version:	25.04.0
 Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	39c492e36e53895e21b37c2f06372312
+# Source0-md5:	8c6bc446896c7fb0782d55fc8a2f6348
 URL:		http://www.kdevelop.org/
 BuildRequires:	Qt6Concurrent-devel >= %{qtver}
 BuildRequires:	Qt6Core-devel >= %{qtver}
