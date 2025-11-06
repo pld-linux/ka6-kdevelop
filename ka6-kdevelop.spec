@@ -3,7 +3,7 @@
 %bcond_with	tests		# build with tests
 %bcond_without	webengine	# build without webengine
 
-%define		kdeappsver	25.08.2
+%define		kdeappsver	25.08.3
 %define		kframever	6.0.0
 %define		qtver		6.5.0
 %define		kaname		kdevelop
@@ -14,12 +14,12 @@ Summary(pl.UTF-8):	Zintegrowane środowisko programisty dla KDE
 Summary(pt_BR.UTF-8):	Ambiente Integrado de Desenvolvimento para o KDE
 Summary(zh_CN.UTF-8):	KDE C/C++集成开发环境
 Name:		ka6-kdevelop
-Version:	25.08.2
-Release:	2
+Version:	25.08.3
+Release:	1
 License:	GPL
 Group:		X11/Development/Tools
 Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	cc341dfee361c3278a2328ab929c4586
+# Source0-md5:	482b23ea41730901c631879c914899c5
 URL:		http://www.kdevelop.org/
 BuildRequires:	Qt6Concurrent-devel >= %{qtver}
 BuildRequires:	Qt6Core-devel >= %{qtver}
@@ -67,11 +67,11 @@ BuildRequires:	kf6-syntax-highlighting-devel
 BuildRequires:	kf6-threadweaver-devel >= %{kframever}
 BuildRequires:	kp6-libksysguard-devel
 BuildRequires:	kp6-libplasma-devel
-BuildRequires:	llvm-mlir-devel
-BuildRequires:	qt6-assistant >= %{qtver}
 BuildRequires:	libstdc++-devel >= 3.3
+BuildRequires:	llvm-mlir-devel
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
+BuildRequires:	qt6-assistant >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.600
 BuildRequires:	zlib-devel >= 1.2.0
 BuildConflicts:	star
@@ -214,30 +214,30 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kdevelop
 %attr(755,root,root) %{_bindir}/kdevelop!
 %attr(755,root,root) %{_bindir}/kdev_includepathsconverter
-%attr(755,root,root) %{_libdir}/libKDevClangPrivate.so.*
-%attr(755,root,root) %{_libdir}/libKDevCMakeCommon.so.*
-%attr(755,root,root) %{_libdir}/libKDevCompileAnalyzerCommon.so.*
-%attr(755,root,root) %{_libdir}/libKDevelopSessionsWatch.so
+%{_libdir}/libKDevClangPrivate.so.*
+%{_libdir}/libKDevCMakeCommon.so.*
+%{_libdir}/libKDevCompileAnalyzerCommon.so.*
+%{_libdir}/libKDevelopSessionsWatch.so
 %dir %{_libdir}/qt6/plugins/kf6/krunner
 %dir %{_libdir}/qt6/qml/org/kde/plasma/private/kdevelopsessions
-%attr(755,root,root) %{_libdir}/qt6/qml/org/kde/plasma/private/kdevelopsessions/libkdevelopsessionsplugin.so
+%{_libdir}/qt6/qml/org/kde/plasma/private/kdevelopsessions/libkdevelopsessionsplugin.so
 %{_libdir}/qt6/qml/org/kde/plasma/private/kdevelopsessions/qmldir
 
 #kdevplatform
 %attr(755,root,root) %{_bindir}/kdev_dbus_socket_transformer
 %attr(755,root,root) %{_bindir}/kdev_format_source
 %attr(755,root,root) %{_bindir}/kdevplatform_shell_environment.sh
-%attr(755,root,root) %{_libdir}/libKDevPlatformDocumentation.so.*.*.*
-%attr(755,root,root) %{_libdir}/libKDevPlatformInterfaces.so.*.*.*
-%attr(755,root,root) %{_libdir}/libKDevPlatformLanguage.so.*.*.*
-%attr(755,root,root) %{_libdir}/libKDevPlatformOutputView.so.*.*.*
-%attr(755,root,root) %{_libdir}/libKDevPlatformProject.so.*.*.*
-%attr(755,root,root) %{_libdir}/libKDevPlatformSerialization.so.*.*.*
-%attr(755,root,root) %{_libdir}/libKDevPlatformShell.so.*.*.*
-%attr(755,root,root) %{_libdir}/libKDevPlatformSublime.so.*.*.*
-%attr(755,root,root) %{_libdir}/libKDevPlatformUtil.so.*.*.*
-%attr(755,root,root) %{_libdir}/libKDevPlatformVcs.so.*.*.*
-%attr(755,root,root) %{_libdir}/libKDevPlatformDebugger.so.*.*
+%{_libdir}/libKDevPlatformDocumentation.so.*.*.*
+%{_libdir}/libKDevPlatformInterfaces.so.*.*.*
+%{_libdir}/libKDevPlatformLanguage.so.*.*.*
+%{_libdir}/libKDevPlatformOutputView.so.*.*.*
+%{_libdir}/libKDevPlatformProject.so.*.*.*
+%{_libdir}/libKDevPlatformSerialization.so.*.*.*
+%{_libdir}/libKDevPlatformShell.so.*.*.*
+%{_libdir}/libKDevPlatformSublime.so.*.*.*
+%{_libdir}/libKDevPlatformUtil.so.*.*.*
+%{_libdir}/libKDevPlatformVcs.so.*.*.*
+%{_libdir}/libKDevPlatformDebugger.so.*.*
 %ghost %{_libdir}/libKDevPlatformDebugger.so.??
 %ghost %{_libdir}/libKDevPlatformDocumentation.so.??
 %ghost %{_libdir}/libKDevPlatformInterfaces.so.??
@@ -251,67 +251,67 @@ rm -rf $RPM_BUILD_ROOT
 %ghost %{_libdir}/libKDevPlatformVcs.so.??
 %dir %{_libdir}/qt6/plugins/kdevplatform
 %dir %{_libdir}/qt6/plugins/kdevplatform/6?
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevCMakeManager.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevCustomBuildSystem.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevCustomMakeManager.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevDefinesAndIncludesManager.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevGenericManager.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevMakeBuilder.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevManPage.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevMesonManager.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevNinjaBuilder.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevOutlineView.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevProjectFilter.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevProjectManagerView.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevQMakeBuilder.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevQMakeManager.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevStandardOutputView.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevWelcomePage.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevandroid.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevappwizard.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevastyle.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevbazaar.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevclangsupport.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevclangtidy.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevclassbrowser.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevclazy.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevcodeutils.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevcontextbrowser.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevcppcheck.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevcraft.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevcustomscript.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevdocker.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevdocumentswitcher.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevdocumentview.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevexecute.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevexecuteplasmoid.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevexecutescript.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevexternalscript.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevfilemanager.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevfiletemplates.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevflatpak.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevgdb.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevghprovider.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevgit.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevgrepview.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevheaptrack.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevkonsoleview.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevlldb.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevopenwith.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevpatchreview.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevperforce.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevproblemreporter.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevqthelp.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevquickopen.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevsourceformatter.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevswitchtobuddy.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevtestview.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/kdevvcschangesviewplugin.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/scratchpad.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevCMakeBuilder.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kdevplatform/6?/KDevCMakeDocumentation.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/krunner/kdevelopsessions.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/ktexttemplate/kdev_filters.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevCMakeManager.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevCustomBuildSystem.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevCustomMakeManager.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevDefinesAndIncludesManager.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevGenericManager.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevMakeBuilder.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevManPage.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevMesonManager.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevNinjaBuilder.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevOutlineView.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevProjectFilter.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevProjectManagerView.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevQMakeBuilder.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevQMakeManager.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevStandardOutputView.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevWelcomePage.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevandroid.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevappwizard.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevastyle.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevbazaar.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevclangsupport.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevclangtidy.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevclassbrowser.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevclazy.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevcodeutils.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevcontextbrowser.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevcppcheck.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevcraft.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevcustomscript.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevdocker.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevdocumentswitcher.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevdocumentview.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevexecute.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevexecuteplasmoid.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevexecutescript.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevexternalscript.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevfilemanager.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevfiletemplates.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevflatpak.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevgdb.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevghprovider.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevgit.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevgrepview.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevheaptrack.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevkonsoleview.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevlldb.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevopenwith.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevpatchreview.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevperforce.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevproblemreporter.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevqthelp.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevquickopen.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevsourceformatter.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevswitchtobuddy.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevtestview.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/kdevvcschangesviewplugin.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/scratchpad.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevCMakeBuilder.so
+%{_libdir}/qt6/plugins/kdevplatform/6?/KDevCMakeDocumentation.so
+%{_libdir}/qt6/plugins/kf6/krunner/kdevelopsessions.so
+%{_libdir}/qt6/plugins/kf6/ktexttemplate/kdev_filters.so
 
 %files data -f %{kaname}.lang
 %defattr(644,root,root,755)
