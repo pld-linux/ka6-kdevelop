@@ -77,10 +77,10 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildRequires:	zlib-devel >= 1.2.0
 BuildConflicts:	star
-Requires:	%{name}-data = %{version}-%{release}
-Requires:	libstdc++-gdb
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	shared-mime-info
+Requires:	%{name}-data = %{version}-%{release}
+Requires:	libstdc++-gdb
 %requires_eq_to Qt6Core Qt6Core-devel
 Obsoletes:	ka5-%{kaname} < %{version}
 ExcludeArch:	x32 %{ix86}
@@ -148,7 +148,9 @@ własnych potrzeb.
 Summary:	Data files for %{kaname}
 Summary(pl.UTF-8):	Dane dla %{kaname}
 Group:		X11/Development/Tools
+Requires(post,postun):	gtk-update-icon-cache
 Requires:	filesystem >= 4.1-18
+Requires:	hicolor-icon-theme
 Obsoletes:	bash-completion-kdevelop <= 23.08.4-1
 Obsoletes:	ka5-%{kaname}-data < %{version}
 BuildArch:	noarch
@@ -210,10 +212,16 @@ rm -rf $RPM_BUILD_ROOT
 %update_mime_database
 %update_desktop_database
 
+%post data
+%update_icon_cache hicolor
+
 %postun
 /sbin/ldconfig
 %update_mime_database
 %update_desktop_database_postun
+
+%postun data
+%update_icon_cache hicolor
 
 %files
 %defattr(644,root,root,755)
@@ -337,7 +345,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mime/packages/*
 %{_desktopdir}/org.kde.kdevelop.desktop
 %{_desktopdir}/org.kde.kdevelop_*.desktop
-%{_iconsdir}/*/*x*/*/*.png
+%{_iconsdir}/hicolor/*x*/*/*.png
 %{_datadir}/kdevcodegen
 %{_datadir}/kdevcodeutils
 %{_iconsdir}/hicolor/*/actions/*.svg
