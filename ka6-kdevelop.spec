@@ -72,7 +72,7 @@ BuildRequires:	llvm-mlir-devel
 BuildRequires:	ninja
 BuildRequires:	pkgconfig
 BuildRequires:	qt6-assistant >= %{qtver}
-BuildRequires:	rpmbuild(macros) >= 1.600
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	zlib-devel >= 1.2.0
 BuildConflicts:	star
 Requires:	%{name}-data = %{version}-%{release}
